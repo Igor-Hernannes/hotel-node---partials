@@ -11,7 +11,7 @@ router.get("/adm-cliente", (req, res)=>{
 })
 
 router.get("/adm-cliente-novo", (req, res)=>{
-    res.render("pages/adm-cliente-novo");
+    res.render("pages/adm-cliente-novo", {"erros": null, "valores": {"nome":"", "email":"", }});
 })
 
 router.get("/adm-cliente-edit", (req, res)=>{
