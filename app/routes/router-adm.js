@@ -40,7 +40,7 @@ router.post(
       .matches(/^\d{5}-?\d{3}$/)
       .withMessage("Digite um CEP válido. Exemplo: 00000-000."),
  
-   body("usuario")
+   body("nomeUsuario")
       .isLength({ min: 3, max: 20 })
       .withMessage("O nome de usuário deve ter entre 3 e 20 caracteres."),
  
@@ -52,12 +52,13 @@ router.post(
       .isLength({ min: 6 })
       .withMessage("A senha deve ter no mínimo 6 caracteres."),
  
-   body("tipoUsuario")
-      .isIn(["comum", "gerente"])
+   body("tipo")
+      .isIn(["1", "2"])
       .withMessage("O tipo de usuário deve ser comum ou gerente."),
  
    body("status")
-      .isIn(["ativo", "inativo"])
+      .notEmpty()
+      .isIn(["1", "0"])
       .withMessage("O status deve ser ativo ou inativo."),
  
    (req, res) => {
